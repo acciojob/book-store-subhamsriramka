@@ -22,22 +22,22 @@ public class BookController {
 
     @GetMapping("/get-book-by-id/{id}")
     public ResponseEntity<Book> getBookBuId(@PathVariable int id) {
-        return new ResponseEntity<>(bookService.findBookById(id), HttpStatus.ACCEPTED);
+        return new ResponseEntity<Book>(bookService.findBookById(id), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/get-all-books")
     public ResponseEntity<List<Book>> getAllBooks() {
-        return new ResponseEntity<>(bookService.findAllBooks(), HttpStatus.FOUND);
+        return new ResponseEntity<List<Book>>(bookService.findAllBooks(), HttpStatus.FOUND);
     }
 
     @GetMapping("/get-books-by-author")
     public ResponseEntity<List<Book>> getBookByAuthor(@RequestParam String author) {
-        return new ResponseEntity<>(bookService.findBooksByAuthor(author), HttpStatus.FOUND);
+        return new ResponseEntity<List<Book>>(bookService.findBooksByAuthor(author), HttpStatus.FOUND);
     }
 
     @GetMapping("/get-books-by-genre")
     public ResponseEntity<List<Book>> getBookByGenre(@RequestParam String genre) {
-        return new ResponseEntity<>(bookService.findBooksByGenre(genre), HttpStatus.FOUND);
+        return new ResponseEntity<List<Book>>(bookService.findBooksByGenre(genre), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/delete-book-by-id/{id}")
